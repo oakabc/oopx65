@@ -16,40 +16,22 @@ public class Time2 {
 
     // Constructor
     public Time2() {
-//        this.hour = 0;
-//        this.minute = 0;
-//        this.second = 0;
         this(0,0,0);
     }
 
     public Time2(int h) {
-//        this.hour = h;
-//        this.minute = 0;
-//        this.second = 0;
         this(h,0,0);
     }
 
     public Time2(int h, int m) {
-//        this.hour = h;
-//        this.minute = m;
-//        this.second = 0;
-//        setHour(h);//this.hour = h;
-//        setMinute(m);//this.minute = m;
-//        setSecond(0);//this.second = s;
         this(h,m,0); /// Constructor
     }
 
     public Time2(int h, int m, int s) {
-//        setHour(h);//this.hour = h;
-//        setMinute(m);//this.minute = m;
-//        setSecond(s);//this.second = s;
         setTime(h,m,s);
     }
 
     public Time2(Time2 time) {
-//        this.hour = time.getHour();
-//        this.minute = time.getMinute();
-//        this.second = time.getSecond();
         this(time.getHour(), time.getMinute(), time.getSecond());
     }
 
