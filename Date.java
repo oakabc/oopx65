@@ -2,43 +2,71 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package week4;
 
 /**
  *
  * @author chanakarnkin
  */
-public class Date { // "23/06/2566"
+public class Date {
     
-    // Instance Variable (ตัวแปรของ object !!!!) 
+    // Instance Variable - ตัวแปรของออบเจค
     private int day;
     private int month;
     private int year;
     
-    public void setDate(int day, int month, int year) { /// 6
-        // Data Validation - Control Logic -- แปลง if...else ให้เป็น ternary operator
-        this.day = (day > 0 && day < 32) ? day : 0;
-        this.month = (month > 0 && month < 13) ? month : 0;
-        this.year = (year >= 1900 && year <= 9999) ? year : 0;
+    // Constructor - ตัวสร้างออบเจค
+    
+    public Date (int day, int month, int year) {
+//        this.day = day;
+//        this.month = month;
+//        this.year = year;
+           setDate(day, month, year);
     }
-    @Override
+    
+    // Accessor Methods - การเข้าถึงค่าข้อมูล
+    public int getDay() {
+        return day;
+    }
+    public int getMonth(){
+        return month;
+    }
+    public int getYear(){
+        return year;
+    }
+    
+    // Mutator Methods - การเปลี่ยนแปลงข้อมูล
+    public void setDay(int day){
+       if (day > 0 && day <= 31) this.day = day;
+       else this.day = 0;
+    }
+    public void setMonth(int month){
+        if (month > 0 && month <= 12) this.month = month;
+        else this.month = 0;
+    }
+    public void setYear(int year){
+        if (year >= 1900 && year <= 9999) this.year = year;
+        else this.year = 0;
+    }
+    public void setDate(int day, int month, int year){
+        setDay(day); //this.day = day;
+        setMonth(month); //this.month = month;
+        setYear(year); //this.year = year;
+    }
+    
+    // toString - จัดรูปแบบ output เพื่อแสดงค่าของ object
+    
+    @Override // การแทนที่ - เขียนเมธอดแทนที่ toString ของ class Object
     public String toString() {
-    
-        return this.day + "/" +this.month+"/"+this.year;
-    }
-    
-}
-
-class DateTest {
-
-    public static void main(String[] args) {
         
-        Date today = new Date(); // สร้าง object 
-        today.setDate(23, 6, 2023);
-        System.out.println(today);
-       
-        // 50/16/50000
-        Date future = new Date();
-        future.setDate(5, 16, 50000);
-        System.out.println(future);
+        String dayString = "";
+        String monthString = "";
+        if (day < 10) dayString = "0" + day;
+        else dayString = ""+day;
+        if (month < 10) monthString = "0"+month;
+        else monthString = ""+month;
+        
+        return dayString + "/" + monthString + "/" + year;
     }
+    
 }
